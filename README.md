@@ -4,12 +4,7 @@
 
 A Retrieval-Augmented Generation (RAG) chatbot built with Streamlit. Upload your documents, ask questions in a chat interface, and get answers based on your own content instead of the LLM's general knowledge.
 
-## 🎬 Demo
 
-<!-- Add a screenshot or GIF of the app here -->
-![App Screenshot](screenshots/demo.png)
-
-🔗 **Live demo:** _add your Streamlit Community Cloud link here_
 
 ## ✨ Features
 
