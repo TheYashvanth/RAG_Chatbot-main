@@ -74,5 +74,5 @@ This project is licensed under the MIT License.
 
 ## 👤 Author
 
-**Yashwanth**
-GitHub: [@your-username](https://github.com/TheYashvanth) · LinkedIn: [your-profile](https://www.linkedin.com/in/nagothula-yashvanth-naidu-3416a1268/)
+**Yashvanth Naidu**
+GitHub: [@TheYashvanth](https://github.com/TheYashvanth) · LinkedIn: [Nagotula Yashvanth Naidu](https://www.linkedin.com/in/nagothula-yashvanth-naidu-3416a1268/)
