@@ -1,6 +1,15 @@
 # 🤖 RAG Chatbot
 
-A Retrieval-Augmented Generation (RAG) chatbot built with Streamlit. Upload your documents, ask questions in a chat interface, and get answers grounded in your own content instead of the LLM's general knowledge.
+> Ask questions about your own documents and get answers grounded in their content, without reading them end to end.
+
+A Retrieval-Augmented Generation (RAG) chatbot built with Streamlit. Upload your documents, ask questions in a chat interface, and get answers based on your own content instead of the LLM's general knowledge.
+
+## 🎬 Demo
+
+<!-- Add a screenshot or GIF of the app here -->
+![App Screenshot](screenshots/demo.png)
+
+🔗 **Live demo:** _add your Streamlit Community Cloud link here_
 
 ## ✨ Features
 
@@ -32,14 +41,14 @@ User Question → Embed Query → Retrieve Top-K Chunks
 
 ## 🧰 Tech Stack
 
-| Component    | Technology                         |
-|--------------|------------------------------------|
-| Language     | Python                             |
-| UI           | Streamlit                          |
-| Embeddings   | Sentence Transformers              |
-| Vector Store | FAISS (CPU)                        |
-| LLM          | Google Gemini (`google-genai`)     |
-| File Parsing | `pypdf`, `python-docx`             |
+| Component    | Technology                     |
+|--------------|--------------------------------|
+| Language     | Python                         |
+| UI           | Streamlit                      |
+| Embeddings   | Sentence Transformers          |
+| Vector Store | FAISS (CPU)                    |
+| LLM          | Google Gemini (`google-genai`) |
+| File Parsing | `pypdf`, `python-docx`         |
 
 ## 📁 Project Structure
 
@@ -60,6 +69,12 @@ RAG_Chatbot/
 3. Type a question in the chat box.
 4. Get an answer based on the content of your documents.
 
+## ⚠️ Limitations
+
+- Works best with text-based PDFs; scanned images are not supported (no OCR).
+- Answers are only as good as the retrieved chunks and the quality of the source documents.
+- Requires an internet connection and a Gemini API key for answer generation.
+
 ## 🛣️ Future Improvements
 
 - [ ] Conversation memory for follow-up questions
@@ -67,10 +82,6 @@ RAG_Chatbot/
 - [ ] Support more file types (TXT, Markdown, web pages)
 - [ ] Re-ranking of retrieved chunks
 - [ ] Docker support and cloud deployment
-
-## 📄 License
-
-This project is licensed under the MIT License.
 
 ## 👤 Author
 
