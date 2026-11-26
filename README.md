@@ -1,194 +1,78 @@
-# 🤖 RAG Chatbot Using Google Gemini API
+# 🤖 RAG Chatbot
 
-## 📌 Overview
+A Retrieval-Augmented Generation (RAG) chatbot built with Streamlit. Upload your documents, ask questions in a chat interface, and get answers grounded in your own content instead of the LLM's general knowledge.
 
-This project is a Retrieval-Augmented Generation (RAG) Chatbot that answers user questions based on uploaded documents. The chatbot combines semantic search with Google's Gemini API to generate accurate, context-aware responses from the document content.
+## ✨ Features
 
-The application uses Sentence Transformers for embedding generation, FAISS for vector similarity search, and Streamlit for the user interface.
+- Upload and process PDF and Word (`.docx`) documents
+- Splits documents into chunks and converts them into embeddings
+- Stores embeddings in a local FAISS vector database (`vector_db/`)
+- Retrieves the most relevant chunks for each question (semantic search)
+- Generates answers with Google Gemini using the retrieved context
+- Simple, interactive Streamlit chat interface
 
----
+## 🏗️ How It Works
 
-## 🚀 Features
-
-- Document Upload Support
-- Text Extraction from Documents
-- Text Chunking
-- Embedding Generation
-- FAISS Vector Database
-- Semantic Search & Retrieval
-- Context-Aware Question Answering
-- Google Gemini API Integration
-- Interactive Streamlit Interface
-
----
-
-## 🛠️ Tech Stack
-
-- Python
-- Streamlit
-- Google Gemini API
-- FAISS
-- Sentence Transformers
-- NumPy
-- PyPDF
-- Python-Docx
-
----
-
-## 📂 Project Workflow
-
-1. Upload Document
-2. Extract Text
-3. Split Text into Chunks
-4. Generate Embeddings
-5. Store Embeddings in FAISS
-6. Retrieve Relevant Chunks
-7. Send Context to Gemini API
-8. Generate Accurate Response
-
----
-
-## 🏗️ Project Architecture
-
-```text
-User Query
-     │
-     ▼
-Document Upload
-     │
-     ▼
-Text Extraction
-     │
-     ▼
-Text Chunking
-     │
-     ▼
-Embedding Generation
-     │
-     ▼
-FAISS Vector Database
-     │
-     ▼
-Semantic Search
-     │
-     ▼
-Relevant Context
-     │
-     ▼
-Google Gemini API
-     │
-     ▼
-Generated Answer
+```
+Documents (PDF / DOCX)
+        │
+   Text extraction → Chunking → Embeddings (Sentence Transformers)
+                                      │
+                                 FAISS Vector DB
+                                      │
+User Question → Embed Query → Retrieve Top-K Chunks
+                                      │
+                 Prompt (Question + Context) → Gemini → Answer
 ```
 
-## ⚙️ Installation
+1. **Ingestion:** text is extracted from the uploaded files.
+2. **Indexing:** the text is split into chunks, embedded, and saved in FAISS.
+3. **Retrieval:** the question is embedded and the closest chunks are found.
+4. **Generation:** the LLM answers using only the retrieved context.
 
-### Clone Repository
+## 🧰 Tech Stack
 
-```bash
-git clone https://github.com/Madineni-Pradeep-Naidu/RAG-Chatbot.git
-cd RAG-Chatbot
-```
-
-### Create Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-### Activate Virtual Environment
-
-Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Configure Gemini API Key
-
-Create a `.streamlit/secrets.toml` file:
-
-```toml
-GOOGLE_API_KEY = "YOUR_GEMINI_API_KEY"
-```
-
-Or use environment variables.
-
-### Run Application
-
-```bash
-streamlit run app.py
-```
-
----
+| Component    | Technology                         |
+|--------------|------------------------------------|
+| Language     | Python                             |
+| UI           | Streamlit                          |
+| Embeddings   | Sentence Transformers              |
+| Vector Store | FAISS (CPU)                        |
+| LLM          | Google Gemini (`google-genai`)     |
+| File Parsing | `pypdf`, `python-docx`             |
 
 ## 📁 Project Structure
 
-```text
-RAG Chatbot/
-│
-├── app.py
-├── requirements.txt
-├── RAG_Chatbot.txt
+```
+RAG_Chatbot/
+├── .devcontainer/     # Dev container configuration
+├── vector_db/         # Saved FAISS index
+├── app.py             # Main Streamlit application
+├── requirements.txt   # Python dependencies
 ├── .gitignore
-├── README.md
-│
-├── vector_db/
-│
-└── .streamlit/
-    └── secrets.toml
+└── README.md
 ```
 
----
+## 💬 Usage
 
-## ✅ Modules Implemented
+1. Upload one or more PDF / DOCX files.
+2. Wait for the documents to be processed and indexed.
+3. Type a question in the chat box.
+4. Get an answer based on the content of your documents.
 
-- Document Extraction
-- Text Chunking
-- Embedding Generation
-- FAISS Vector Database
-- Semantic Search
-- Gemini Response Generation
+## 🛣️ Future Improvements
 
----
+- [ ] Conversation memory for follow-up questions
+- [ ] Show source chunks and page numbers with each answer
+- [ ] Support more file types (TXT, Markdown, web pages)
+- [ ] Re-ranking of retrieved chunks
+- [ ] Docker support and cloud deployment
 
-## 🎯 Future Enhancements
+## 📄 License
 
-- Multiple File Upload Support
-- Chat History
-- Source Citations
-- PDF Export of Chats
-- Conversation Memory
-- Advanced Document Filtering
-- Cloud Deployment
+This project is licensed under the MIT License.
 
----
+## 👤 Author
 
-## 📸 Sample Use Case
-
-**Question:**
-> What are the examples of smart materials?
-
-**Response:**
-> Shape Memory Alloys, Piezoelectric Materials, Electrochromic Materials, Magnetostrictive Materials, Thermochromic Materials, Photochromic Materials, and Smart Polymers.
-
----
-
-## 👨‍💻 Author
-
-**Pradeep Naidu**
-
-Aspiring Data Analyst | AI & Machine Learning Enthusiast
-
-GitHub: https://github.com/Madineni-Pradeep-Naidu
-Deployed Link: https://gemini-rag-chatbot-pradeep.streamlit.app/
-
----
-
-## ⭐ If you found this project useful, please consider giving it a star!
+**Yashwanth**
+GitHub: [@your-username](https://github.com/TheYashvanth) · LinkedIn: [your-profile](https://www.linkedin.com/in/nagothula-yashvanth-naidu-3416a1268/)
